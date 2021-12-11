@@ -18,7 +18,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const session = require('express-session')
+const session = require('cookie-session')
 app.use(session({
   secret: 'keyboard cat',
   cookie: {}
