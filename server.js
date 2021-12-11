@@ -2,6 +2,8 @@ const CONSTANTS = require('./consts');
 const express = require('express');
 const app = express();
 
+app.options('*', function (req,res) { res.sendStatus(200); });
+
 app.use(function(req, res, next) {
   // res.header("Access-Control-Allow-Origin",
   //     "https://sharp-northcutt-1bdda8.netlify.app");
