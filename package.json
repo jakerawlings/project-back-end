@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jakerawlings/pokedex-server#readme",
   "dependencies": {
     "cookie-session": "^1.4.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mongoose": "^6.1.1"
