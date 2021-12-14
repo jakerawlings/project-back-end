@@ -1,9 +1,10 @@
 const userDao = require('./user-dao');
 
 module.exports = (app) => {
-  const findAllUsers = (req, res) =>
-      userDao.findAllUsers()
-      .then(users => res.json(users));
+  const findAllUsers = (req, res) => {
+    userDao.findAllUsers()
+    .then(users => res.json(users));
+  }
 
   const findUserById = (req, res) =>
       userDao.findUserById(req.userId)
@@ -13,9 +14,10 @@ module.exports = (app) => {
       userDao.deleteUser(req.params.userId)
       .then(status => req.send(status));
 
-  const updateUser = (req, res) =>
-      userDao.updateUser(req.body)
-      .then(status => req.send(status));
+  const updateUser = (req, res) => {
+    userDao.updateUser(req.body)
+    .then(status => res.send(status));
+  }
 
   const login = (req, res) => {
     userDao.findByUsernameAndPassword(req.body)
@@ -56,6 +58,6 @@ module.exports = (app) => {
   app.post('/api/logout', logout);
   app.put('/api/users', updateUser);
   app.delete('/api/users/:userId', deleteUser);
-  app.get('/api/users', findAllUsers);
+  app.get('/api/get-users', findAllUsers);
   app.get('/api/users/:userId', findUserById);
 };

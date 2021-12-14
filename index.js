@@ -26,8 +26,12 @@ app.use(session({
 }));
 
 const mongoose = require('mongoose');
-mongoose.connect(CONSTANTS.MONGODB_URL);
+mongoose.connect(CONSTANTS.MONGODB_URL, {
+  useNewUrlParser: true
+});
 
 require('./users/user-controller')(app);
 
-app.listen(process.env.PORT || 4000);
+app.listen(process.env.PORT || 4000, () => {
+  console.log("server running")
+});
